@@ -1,0 +1,37 @@
+[theme]
+base = "light"
+primaryColor = "#F09000"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F3F6F9"
+textColor = "#003050"
+linkColor = "#F09000"
+borderColor = "#C5D0DC"
+dataframeBorderColor = "#C5D0DC"
+font = "Vazirmatn"
+headingFont = "Vazirmatn"
+codeFont = "Source Code Pro"
+
+[[theme.fontFaces]]
+family = "Vazirmatn"
+url = "https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Vazirmatn"
+url = "https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Bold.woff2"
+weight = 700
+style = "normal"
+
+[theme.sidebar]
+backgroundColor = "#003050"
+secondaryBackgroundColor = "#0A4068"
+textColor = "#FFFFFF"
+primaryColor = "#F09000"
+borderColor = "#1A5578"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

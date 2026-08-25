@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.log
+.streamlit/secrets.toml
+_*/
+_*.png
+_*.txt
+_*.json
+_*.py
