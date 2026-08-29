@@ -26,25 +26,28 @@ from calc.engine import (
 )
 from calc.tables import format_rial
 
+LOGO = ROOT / "ABNiYar.jpg"
+
 st.set_page_config(
     page_title="ابنیار | محاسبه عوارض",
-    page_icon="ABNiYar.jpg",
+    page_icon=str(LOGO) if LOGO.exists() else ":material/apartment:",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-st.logo("ABNiYar.jpg", size="large")
+if LOGO.exists():
+    st.logo(str(LOGO))
 
-st.html(
+st.markdown(
     """
 <style>
   html, body, [class*="st-"] { direction: rtl; text-align: right; }
   .stApp { background: linear-gradient(180deg, #ffffff 0%, #f3f6f9 55%, #e8eef4 100%); }
   h1, h2, h3 { color: #003050 !important; }
   div[data-testid="stMetricValue"] { color: #003050; font-weight: 700; }
-  div[data-testid="stSidebarContent"] { background: linear-gradient(180deg, #003050 0%, #0a4068 100%); }
 </style>
-"""
+""",
+    unsafe_allow_html=True,
 )
 
 
@@ -66,7 +69,7 @@ def show_details(details: list[dict]) -> None:
             df[col] = df[col].apply(
                 lambda x: f"{x:,.0f}" if isinstance(x, (int, float)) else x
             )
-    st.dataframe(df, hide_index=True, width="stretch")
+    st.dataframe(df, hide_index=True, use_container_width=True)
 
 
 with st.sidebar:
@@ -312,20 +315,20 @@ else:
                     "Ps تعدیل": m["Ps_adj"],
                 }
             )
-        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+        st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
     with tab2:
         kr = load_kr()
         st.dataframe(
             pd.DataFrame([{"بلوک": k, "K(r)": v} for k, v in kr.items()]),
             hide_index=True,
-            width="stretch",
+            use_container_width=True,
         )
     with tab3:
         cs = load_cs()
         st.dataframe(
             pd.DataFrame([{"بلوک": k, "C(s)": v} for k, v in cs.items()]),
             hide_index=True,
-            width="stretch",
+            use_container_width=True,
         )
 
 st.divider()
